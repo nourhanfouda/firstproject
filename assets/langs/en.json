@@ -1,0 +1,23 @@
+{
+    "categories_appbar": "Flowers",
+    "product_appbar":"Products",
+    "detsils_appbar":"Deatails",
+    "register_appbar":"Register",
+    "customer_register":"Customer",
+    "store_register":"Store",
+    "Cate_avilable":"Available Flowers",
+    "Stors_appbar":"Stores",
+    "Sore_Name":"Store name",
+    "Password":"Password",
+    "Email":"Email",
+    "Location":"Select Your Location",
+    "Mobile":"Mobile",
+    "Description":"Description",
+    "Sub_BTn":"Submit",
+    "customer_Username":"Username",
+    "Messages":"Messages",
+    "settings":"Settings",
+    "AboutApp":"About App",
+    "logout":"Logout",
+    "skip":"Skip"
+}
