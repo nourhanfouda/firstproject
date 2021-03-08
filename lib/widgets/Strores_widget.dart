@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:por1/model/stores_model.dart';
 import 'package:por1/screens/3categories.dart';
+import 'package:por1/utils/colors.dart';
 
 class Storeswidget extends StatelessWidget {
   Storesmodel storesmodel;
@@ -10,7 +11,7 @@ class Storeswidget extends StatelessWidget {
     return Container(
       margin: EdgeInsets.all(20),
       decoration: BoxDecoration(
-          color: Colors.purpleAccent.withOpacity(0.3),
+          color: maincolor.withOpacity(0.3),
           boxShadow: [
             BoxShadow(
               color: Colors.grey.withOpacity(0.2),

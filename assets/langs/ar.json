@@ -19,7 +19,11 @@
     "settings":"الإعدادات",
     "AboutApp":"حول التطبيق",
     "logout":"تسجيل الخروج",
-    "skip":"تجاوز"
+    "skip":"تجاوز",
+    "login":"تسجيل دخول",
+    "lang":"اللغة",
+    "storeregister": "تسجيل متجر",
+    "Customerregister":"تسجيل زبون"
 
 
 

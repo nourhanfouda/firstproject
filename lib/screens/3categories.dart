@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:localize_and_translate/localize_and_translate.dart';
 import 'package:por1/repositories/data_repo.dart';
 import 'package:por1/screens/4Stores.dart';
+import 'package:por1/utils/colors.dart';
 import 'package:por1/widgets/Mydrawer.dart';
 import 'package:por1/widgets/categories_widget.dart';
 import 'package:por1/widgets/myappbar.dart';
@@ -45,7 +46,7 @@ class _CategoriesState extends State<Categories> {
                 ],
                 dotSize: 5,
                 dotIncreaseSize: 2,
-                dotBgColor: Colors.purpleAccent[100].withOpacity(0.2),
+                dotBgColor: maincolor.withOpacity(0.2),
                 showIndicator: true,
                 boxFit: BoxFit.cover,
               ),

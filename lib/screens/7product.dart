@@ -28,9 +28,8 @@ class _ProductState extends State<Product> {
             scrollDirection: Axis.vertical,
             children: [
               Container(
-                //   width: size.width,
+                width: double.infinity,
                 height: size.height,
-
                 child: ListView.builder(
                     itemCount: flowers.length,
                     itemBuilder: (context, index) {

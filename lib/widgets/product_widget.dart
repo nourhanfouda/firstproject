@@ -3,6 +3,7 @@ import 'package:por1/model/categories_model.dart';
 import 'package:por1/repositories/data_repo.dart';
 import 'package:por1/screens/3categories.dart';
 import 'package:por1/screens/8productdetails.dart';
+import 'package:por1/utils/colors.dart';
 
 class ProductWidget extends StatelessWidget {
   Flowers flowers;
@@ -12,10 +13,10 @@ class ProductWidget extends StatelessWidget {
     return Container(
       height: 220,
       // color: Colors.purpleAccent.withOpacity(0.3),
-      width: 200,
+      width: double.infinity,
       margin: EdgeInsets.symmetric(horizontal: 110, vertical: 20),
       decoration: BoxDecoration(
-          color: Colors.purpleAccent[100].withOpacity(0.3),
+          color: maincolor.withOpacity(0.3),
           boxShadow: [
             BoxShadow(
               color: Colors.grey.withOpacity(0.2),

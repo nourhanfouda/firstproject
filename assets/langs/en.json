@@ -19,5 +19,9 @@
     "settings":"Settings",
     "AboutApp":"About App",
     "logout":"Logout",
-    "skip":"Skip"
+    "skip":"Skip",
+    "login":"Login",
+    "lang":"Language",
+    "storeregister": "Store Register",
+    "Customerregister":"Customer Register"
 }

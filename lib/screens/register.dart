@@ -1,26 +1,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:localize_and_translate/localize_and_translate.dart';
-
-import 'package:por1/screens/3categories.dart';
 import 'package:por1/screens/5storeregisterform.dart';
 import 'package:por1/screens/6CustomerRegisterform.dart';
-import 'package:por1/screens/7product.dart';
-import 'package:por1/screens/login.dart';
-import 'package:por1/screens/register.dart';
 import 'package:por1/widgets/customButton.dart';
 
-class Register extends StatelessWidget {
+class RRgister extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
-
-    //  ScreenUtil.init(
-    //  context,
-    // width: 411.42857142857144,
-    //  height: 731.4285714285714,
-    // allowFontScaling: true,
-    //);
     return Scaffold(
         backgroundColor: Colors.white,
         body: Center(
@@ -40,11 +27,11 @@ class Register extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: CustomButton(
-                  title: translator.translate('register_appbar'),
+                  title: translator.translate('storeregister'),
                   onPressed: () {
                     Navigator.of(context)
                         .push(MaterialPageRoute(builder: (context) {
-                      return RRgister();
+                      return StoreRegister();
                     }));
                   },
                 ),
@@ -52,11 +39,11 @@ class Register extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: CustomButton(
-                  title: translator.translate('login'),
+                  title: translator.translate('Customerregister'),
                   onPressed: () {
                     Navigator.of(context)
                         .push(MaterialPageRoute(builder: (context) {
-                      return Login();
+                      return CustomerRegister();
                     }));
                   },
                 ),

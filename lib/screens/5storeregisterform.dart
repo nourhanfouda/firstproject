@@ -1,11 +1,15 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:get/get_connect/http/src/utils/utils.dart';
 import 'package:localize_and_translate/localize_and_translate.dart';
 import 'package:por1/screens/2Register.dart';
 import 'package:por1/screens/7product.dart';
+import 'package:por1/widgets/CustomTextField.dart';
 import 'package:por1/widgets/Mydrawer.dart';
+import 'package:por1/widgets/customButton.dart';
 import 'package:por1/widgets/myappbar.dart';
+import 'package:string_validator/string_validator.dart';
 
 class StoreRegister extends StatelessWidget {
   var storekey = GlobalKey<FormState>();
@@ -32,7 +36,7 @@ class StoreRegister extends StatelessWidget {
       appBar: MyAppBar(
         title: "register_appbar",
       ),
-      endDrawer: MyAppBar(),
+      // endDrawer: MyAppBar(),
       body: Center(
         child: ListView(scrollDirection: Axis.vertical, children: [
           Container(
@@ -46,7 +50,7 @@ class StoreRegister extends StatelessWidget {
                   SizedBox(
                     height: 50,
                   ),
-                  TextFormField(
+                  CustomTextField(
                     validator: (Value) {
                       if (Value.isEmpty) {
                         return '*Required';
@@ -56,46 +60,50 @@ class StoreRegister extends StatelessWidget {
                     onSaved: (newValue) {
                       this.storeName = newValue;
                     },
-                    decoration: InputDecoration(
-                        labelText: translator.translate("Sore_Name"),
-                        border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(30))),
+                    labelName: translator.translate("Sore_Name"),
+                    icon: Icon(Icons.store),
+                    secure: false,
+                    keyboardType: TextInputType.name,
                   ),
                   SizedBox(
                     height: 15,
                   ),
-                  TextFormField(
+                  CustomTextField(
                     validator: (Value) {
-                      if (Value.isEmpty)
+                      if (Value.isEmpty) {
                         return 'required';
-                      else
-                        return null;
-                    },
-                    onSaved: (newValue) {
-                      this.storeName = newValue;
-                    },
-                    decoration: InputDecoration(
-                        labelText: translator.translate("Password"),
-                        border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(30))),
-                  ),
-                  SizedBox(
-                    height: 15,
-                  ),
-                  TextFormField(
-                    validator: (Value) {
-                      if (Value.isEmpty) {
-                        return '*Required';
+                      } else if (Value.length < 6) {
+                        return 'The password must be more than 6 charachter';
                       } else
                         return null;
                     },
                     onSaved: (newValue) {
                       this.storeName = newValue;
                     },
-                    decoration: InputDecoration(
-                        labelText: translator.translate("Email"),
-                        border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(30))),
+                    labelName: translator.translate("Password"),
+                    icon: Icon(Icons.visibility),
+                    secure: true,
+                    keyboardType: TextInputType.visiblePassword,
+                  ),
+                  SizedBox(
+                    height: 15,
+                  ),
+                  CustomTextField(
+                    validator: (Value) {
+                      if (Value.isEmpty) {
+                        return '*Required';
+                      } else if (!isEmail(Value)) {
+                        return 'incorrect email pattern ';
+                      } else
+                        return null;
+                    },
+                    onSaved: (newValue) {
+                      this.storeName = newValue;
+                    },
+                    labelName: translator.translate("Email"),
+                    icon: Icon(Icons.email),
+                    secure: false,
+                    keyboardType: TextInputType.emailAddress,
                   ),
                   Container(
                     //  margin: EdgeInsets.all(20),
@@ -127,7 +135,7 @@ class StoreRegister extends StatelessWidget {
                   SizedBox(
                     height: 15,
                   ),
-                  TextFormField(
+                  CustomTextField(
                     validator: (Value) {
                       if (Value.isEmpty) {
                         return '*Required';
@@ -137,15 +145,15 @@ class StoreRegister extends StatelessWidget {
                     onSaved: (newValue) {
                       this.storeName = newValue;
                     },
-                    decoration: InputDecoration(
-                        labelText: translator.translate("Mobile"),
-                        border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(30))),
+                    labelName: translator.translate("Mobile"),
+                    icon: Icon(Icons.phone_android_outlined),
+                    secure: false,
+                    keyboardType: TextInputType.phone,
                   ),
                   SizedBox(
                     height: 15,
                   ),
-                  TextFormField(
+                  CustomTextField(
                     validator: (Value) {
                       if (Value.isEmpty) {
                         return '*Required';
@@ -155,35 +163,25 @@ class StoreRegister extends StatelessWidget {
                     onSaved: (newValue) {
                       this.storeName = newValue;
                     },
-                    decoration: InputDecoration(
-                        labelText: translator.translate("Description"),
-                        border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(30))),
+                    labelName: translator.translate("Description"),
+                    icon: Icon(Icons.description),
+                    secure: false,
+                    keyboardType: TextInputType.name,
                   ),
-                  Container(
-                    padding: EdgeInsets.all(10),
-                    height: 70,
-                    width: 200,
-                    child: RaisedButton(
-                        color: Colors.purpleAccent[100].withOpacity(0.5),
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(20)),
-                        child: Text(
-                          translator.translate("Sub_BTn"),
-                          style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 25,
-                              fontWeight: FontWeight.bold),
-                        ),
-                        onPressed: () {
-                          if (savestoreform()) {
-                            Navigator.of(context)
-                                .push(MaterialPageRoute(builder: (context) {
-                              return Product();
-                            }));
-                          }
-                        }),
-                  )
+                  CustomButton(
+                      title: translator.translate("Sub_BTn"),
+                      onPressed: () {
+                        Navigator.of(context)
+                            .push(MaterialPageRoute(builder: (context) {
+                          return Product();
+                        }));
+                        // if (savestoreform()) {
+                        //   Navigator.of(context)
+                        //       .push(MaterialPageRoute(builder: (context) {
+                        //     return Product();
+                        //   }));
+                        // }
+                      }),
                 ],
               ),
             ),
